@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Voice Generator</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 400px; margin: auto; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        select, textarea, input, button { width: 100%; margin-bottom: 15px; padding: 10px; box-sizing: border-box; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Voiceover Generator</h1>
+    <form action="/generate" method="post">
+        <textarea name="text" rows="5" placeholder="Paste script here..." required></textarea>
+        
+        <label>Choose a Voice:</label>
+        <select name="voiceId" required>
+           {% if voices %}
+               {% for voice in voices %}
+                  <option value="{{ voice.voiceId }}">{{ voice.displayName }}</option>
+               {% endfor %}
+           {% else %}
+             <option value="">No voices available (Check API Key)</option>
+           {% endif %}
+        </select>
+        
+        <label>Speed (Rate -50 to 50):</label>
+        <input type="number" name="rate" min="-50" max="50" value="0">
+
+        <label>Tone (Pitch -50 to 50):</label>
+        <input type="number" name="pitch" min="-50" max="50" value="0">
+        
+        <button type="submit">Generate Voiceover</button>
+    </form>
+
+    {% if audio_file %}
+        <hr>
+        <h3>Your Voiceover is Ready:</h3>
+        <audio controls autoplay>
+          <source src="{{ url_for('static', filename=audio_file) }}" type="audio/wav">  
+        </audio>
+    {% endif %}
+</body>
+</html>

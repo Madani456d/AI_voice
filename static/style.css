@@ -1,0 +1,57 @@
+/* Clean and Professional CSS */
+body { 
+    background-color: #eef2f3; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+.container { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 450px;
+}
+
+h1 { text-align: center; color: #333; }
+
+textarea { 
+    width: 100%; 
+    margin: 15px 0; 
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+}
+
+label { display: block; margin-top: 10px; font-weight: bold; color: #555; }
+
+input[type=range] { width: 100%; margin-bottom: 10px; }
+
+button { 
+    width: 100%; 
+    padding: 12px; 
+    background: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover { background: #0056b3; }
+
+.audio-result { margin-top: 25px; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
